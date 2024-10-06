@@ -55,16 +55,7 @@ public class UserService {
        return true;
    }
 
-   public boolean loginuser(Userinfo user){
-      List<Userinfo> userlist = userrepo.findAll();
-      for(Userinfo currentuser: userlist){
-       if(currentuser.getEmail().equals(user.getEmail()))
-         if(currentuser.getPassword().equals(user.getPassword())){
-            return true;
-         }
-      }
-    return false;
-   }
+
 
    public Userinfo getuser(String username){
        return userrepo.findByUsername(username);
