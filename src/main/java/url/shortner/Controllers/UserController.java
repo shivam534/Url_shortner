@@ -17,6 +17,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import url.shortner.Entity.RegisterData;
 import url.shortner.Entity.Urls;
 import url.shortner.Entity.Userinfo;
 import url.shortner.Service.UrlService;
@@ -39,7 +40,7 @@ public class UserController {
     }
     
     @PostMapping("/register")
-    public ResponseEntity<Map<String,String>> register(@Validated(Registergroup.class) @RequestBody Userinfo user, BindingResult result) {
+    public ResponseEntity<Map<String,String>> register(@Validated(Registergroup.class) @RequestBody RegisterData data, BindingResult result) {
         if(result.hasErrors()){
              // Create a map to hold the field name and error messages
             Map<String, String> errors = new HashMap<>();
@@ -57,9 +58,9 @@ public class UserController {
 
       
         Map<String , String> response = new HashMap<>();
-        if(!userservice.adduser(user)){
+        if(!userservice.adduser(data)){
             response.put("status", HttpStatus.CONFLICT.toString());
-            response.put("message", user.getEmail()+" already exist");
+            response.put("message", data.getEmail()+" already exist");
 
             return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
         }
@@ -117,10 +118,10 @@ public class UserController {
         }
     }
 
-    @GetMapping("/list")
-    public List<Urls> getallurl(){
-        return urlservice.getallurl();
-    }
+//    @GetMapping("/list")
+//    public List<Urls> getallurl(){
+//        return urlservice.getallurl();
+//    }
 
     @GetMapping("/list/{username}")
 

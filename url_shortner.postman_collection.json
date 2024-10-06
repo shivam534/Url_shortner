@@ -1,0 +1,169 @@
+{
+	"info": {
+		"_postman_id": "91ff7125-73e4-4ff2-8873-6a30038915df",
+		"name": "url_shortner",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23245925"
+	},
+	"item": [
+		{
+			"name": "loginuser",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \r\n    \"username\":\"theshiv_12\",\r\n    \"password\":\"123456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/loginuser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"loginuser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Shivam\",\r\n    \"username\":\"shivam\",\r\n    \"email\":\"s@gmail.com\",\r\n    \"password\":\"12345\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{endpoint}}/register",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "hello",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "Shivam",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/hello",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"hello"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "shorten",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzaGl2IiwiaWF0IjoxNzI4MTU3MjUyLCJleHAiOjE3MjgxNjA4NTJ9.QcVQGaQOqhE2pcKGCWKbKXKZAmbs4Fisndl6zvI5WZ4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{endpoint}}/shorten?url=https://www.javatpoint.com/spring-boot-thymeleaf-view%23google_vignette",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"shorten"
+					],
+					"query": [
+						{
+							"key": "url",
+							"value": "https://www.javatpoint.com/spring-boot-thymeleaf-view%23google_vignette"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "checkurl",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "listurls",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ2aWtpIiwiaWF0IjoxNzI4MTU5NjM1LCJleHAiOjE3MjgxNjMyMzV9.5OAV-0l56wYKmQQu9WCZZr91WTV9hHQZCEsxx6J4y-8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{endpoint}}/list",
+					"host": [
+						"{{endpoint}}"
+					],
+					"path": [
+						"list"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
