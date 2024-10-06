@@ -33,7 +33,7 @@ public class Securityconfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
        return http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(request->request
-//                        .requestMatchers("list").hasRole("Admin")
+                        .requestMatchers("/admin/**").hasRole("ADMIN")
                         .requestMatchers("register","loginuser","{shortUrl}")
                         .permitAll()
 
