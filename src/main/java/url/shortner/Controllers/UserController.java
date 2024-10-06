@@ -118,10 +118,13 @@ public class UserController {
         }
     }
 
+<<<<<<< HEAD
 //    @GetMapping("/list")
 //    public List<Urls> getallurl(){
 //        return urlservice.getallurl();
 //    }
+=======
+>>>>>>> origin/main
 
     @GetMapping("/list/{username}")
 
