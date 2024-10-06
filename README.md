@@ -3,7 +3,7 @@
 A backend service which can be used by anyone for they project or 
 can directly be used to shorten any long url which can be accessed  by anyone 
 
-adding this api to your project can hanle all the services like: longin, regiter, profile etc
+adding this api to your project can handle all the services like: login, regiter, profile, settings etc
 all you need is a basic frount-end which can interact with the service
 
 After login user get a token which can be used in any service with in 1hrs.
