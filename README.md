@@ -9,4 +9,4 @@ all you need is a basic front-end which can interact with the service
 After login user get a token which can be used in any service with in 1hrs,
 however accesing the shorturl is public.
 
-User can also see how many people have accessed your short url. 
+User can also see how many people have accessed thier short url. 
