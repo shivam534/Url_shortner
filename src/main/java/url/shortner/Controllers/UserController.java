@@ -117,10 +117,6 @@ public class UserController {
         }
     }
 
-    @GetMapping("/list")
-    public List<Urls> getallurl(){
-        return urlservice.getallurl();
-    }
 
     @GetMapping("/list/{username}")
 
