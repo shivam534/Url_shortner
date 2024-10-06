@@ -23,13 +23,14 @@ UrlsRepository urlrepo;
     private static final String CHARACTERS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     private static final int SHORT_URL_LENGTH = 6;
     private static final Random random = new Random();
-//List<Urls> list = new ArrayList<>();
+    private static final String endpoint = "http://localhost:8080/";
+
 
 public String generateShorturl(String longurl){
 
     //System.out.println(session.getAttribute("username"));
     if(urlrepo.findByUsernameAndLongurl(String.valueOf(session.getAttribute("username")),longurl) !=null){
-        System.out.println("found");
+        return "exist";
     }
     String shorturl=generateRandomString();
     while(getlongurl(shorturl)!=null){
@@ -37,7 +38,7 @@ public String generateShorturl(String longurl){
     }
     Urls url = new Urls();
     url.setLongurl(longurl);
-    url.setShorturl("http://localhost:8080/"+shorturl);
+    url.setShorturl(endpoint+shorturl);
     url.setUsername((String) session.getAttribute("username"));
     urlrepo.save(url);
     return shorturl;
@@ -45,7 +46,7 @@ public String generateShorturl(String longurl){
 
 public String getlongurl(String shorturl){
     //System.out.print(shorturl);
-    Urls url=urlrepo.findByShorturl("http://localhost:8080/"+shorturl);
+    Urls url=urlrepo.findByShorturl(endpoint+shorturl);
     if(url==null) return null; 
     return url.getLongurl();
 }
